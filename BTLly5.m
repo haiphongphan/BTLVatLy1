@@ -234,7 +234,6 @@ set (handles.vo, 'string', num2str(vo)); % hien thi vo len GUI
 
 % --- Executes on button press in pushbutton2.
 function pushbutton2_Callback(~, eventdata, handles)% Xu ly cac tac vu sau khi bam vao nut "Ve do thi mo phong"
-clc; % Xoa cua so lenh
 h=get(handles.h, 'string'); % Nhan gia tri h tu GUI voi h duoc luu dang string
 h=str2double(h); % Chuyen h tu dang string sang dang so
 g=get(handles.g, 'string'); % Nhan gia tri g tu GUI voi g duoc luu dang string
@@ -255,7 +254,6 @@ for i=1:length(t) % Vong lap tao chuyen dong cua vat A va B
     plot (t(i),yA(i),'go', 'LineWidth',3,'MarkerSize',10); % Cap nhat vi tri cua vat A
     hold on;
     plot (t(i),yB(i),'ro','LineWidth',3,'MarkerSize',10); % Cap nhat vi tri cua vat B
-    
     plot (t,yA,'r-',t,yB,'b--','LineWidth',3); % Tao hinh anh duong di cua vat A va B
     legend('Vat A', 'Vat B'); % Chu thich cho vat A va B
     hold off;
@@ -268,7 +266,7 @@ end
 axes(handles.axes2); % Dua vao do thi thu hai
 
 xA=zeros(size(t)); % Tao mang xA=0
-xB= zeros(size(t))+2; % Tao mang xB=0
+xB= zeros(size(t))+2; % Tao mang xB=2
 for i=1:length(t) % Vong lap tao chuyen dong cua vat A va B
     plot (xA(i),yA(i),'go', 'LineWidth',3,'MarkerSize',10); % Cap nhat vi tri cua vat A
     hold on;
@@ -276,7 +274,6 @@ for i=1:length(t) % Vong lap tao chuyen dong cua vat A va B
     plot (xA,yA,'r-',xB,yB,'b--','LineWidth',3); % Tao hinh anh duong di cua vat A va B
     legend('Vat A', 'Vat B'); % Chu thich cho vat A va B
     hold off;
-    xlabel('Khoang canh (m)');
     ylabel('Do cao (m)');
     drawnow; % Cap nhat hinh anh ngay lap tuc
   
