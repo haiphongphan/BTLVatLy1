@@ -227,7 +227,7 @@ g=get(handles.g, 'string'); % Nhan gia tri g tu GUI voi g duoc luu dang string
 g=str2double(g); % Chuyen g tu dang string sang dang so
 tB=sqrt(2*h/g); % Tinh thoi gian cua vat B 
 tA=tB+2; % Tinh thoi gian cua vat A
-vo=(h-5*tA.^2)/(tA); % Tinh van toc ban dau cua vat A
+vo=(h-1/2*g*tA.^2)/(tA); % Tinh van toc ban dau cua vat A
 set (handles.tB, 'string', num2str(tB)); % hien thi tB len GUI
 set (handles.tA, 'string', num2str(tA)); % hien thi tA len GUI
 set (handles.vo, 'string', num2str(vo)); % hien thi vo len GUI
@@ -237,13 +237,15 @@ function pushbutton2_Callback(~, eventdata, handles)% Xu ly cac tac vu sau khi b
 clc; % Xoa cua so lenh
 h=get(handles.h, 'string'); % Nhan gia tri h tu GUI voi h duoc luu dang string
 h=str2double(h); % Chuyen h tu dang string sang dang so
+g=get(handles.g, 'string'); % Nhan gia tri g tu GUI voi g duoc luu dang string
+g=str2double(g); % Chuyen g tu dang string sang dang so
 vo=get(handles.vo, 'string'); % Nhan gia tri v0 tu GUI voi v0 duoc luu dang string
 vo=str2double(vo); % Chuyen v0 tu dang string sang dang so
 tA=get(handles.tA, 'string'); % Nhan gia tri tA tu GUI voi tA duoc luu dang string
 tA=str2double(tA); % Chuyen tA tu dang string sang dang so
 t=0:0.05:tA; % Khai bao mang thoi gian
-yA=h-vo*t-5*t.^2; % Do cao cua vat A theo t
-yB=h-5*t.^2; % Do cao cua vat B theo t
+yA=h-vo*t-1/2*g*t.^2; % Do cao cua vat A theo t
+yB=h-1/2*g*t.^2; % Do cao cua vat B theo t
 yB(yB < 0) = 0; % Gioi han gia tri yB khong am
 
 axes(handles.axes1); % Dua vao do thi thu nhat
